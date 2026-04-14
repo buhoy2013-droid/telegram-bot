@@ -30,6 +30,7 @@ async def join_request(join_request: types.ChatJoinRequest):
 """,
     parse_mode="HTML"
 )
+    await asyncio.sleep(15)
 
     try:
         kb1 = InlineKeyboardMarkup(row_width=1)
