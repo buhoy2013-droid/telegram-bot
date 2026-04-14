@@ -55,7 +55,7 @@ async def join_request(join_request: types.ChatJoinRequest):
             InlineKeyboardButton("Пошук", url="https://t.me/+n2F1sgCpv4g1ZGRi")
         )
         await bot.send_message(user_id, f"{name}, остання можливість замовити ❗\n\nОбери свій товар 👇\nhttps://t.me/+n2F1sgCpv4g1ZGRi", reply_markup=kb5)
-        await asyncio.sleep(63)
+        await asyncio.sleep(10)
 
         kb6 = InlineKeyboardMarkup(row_width=1)
         kb6.add(
@@ -71,14 +71,14 @@ async def join_request(join_request: types.ChatJoinRequest):
           reply_markup=kb6
         )
 
-        await asyncio.sleep(2000)
+        await asyncio.sleep(160)
 
         kb7 = InlineKeyboardMarkup(row_width=1)
         kb7.add(
             InlineKeyboardButton("Отримати✅", url="https://t.me/kreditonlineua_bot")
         )
         await bot.send_message(user_id, f"{name}, 🚀Потрібні гроші просто зараз?\n💳Отримайте позику онлайн\n⚡️Швидка заявка\n✅Високий шанс схвалення\n💳Гроші надходять прямо на карту\n🏪Усе працює онлайн 24/7", reply_markup=kb7)
-        await asyncio.sleep(2000)
+        await asyncio.sleep(160)
 
         
 
