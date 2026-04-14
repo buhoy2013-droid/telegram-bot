@@ -13,9 +13,10 @@ dp = Dispatcher(bot)
 async def join_request(join_request: types.ChatJoinRequest):
     user_id = join_request.from_user.id
     name = join_request.from_user.first_name
+    
     await bot.send_message(
-    user_id,
-    f"""Отримуйте легкі гроші за 2 хв. від ПриватБанку 💸
+    user_id, f"{name}, Отримуйте легкі гроші за 2 хв. від ПриватБанку 💸
+    
 
 🔥150 + 150 + 150 + 150🔥
 
@@ -30,7 +31,6 @@ async def join_request(join_request: types.ChatJoinRequest):
     parse_mode="HTML"
 )
 
-# ⏱️ задержка
 await asyncio.sleep(10)
 
     try:
