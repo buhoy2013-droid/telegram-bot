@@ -13,6 +13,25 @@ dp = Dispatcher(bot)
 async def join_request(join_request: types.ChatJoinRequest):
     user_id = join_request.from_user.id
     name = join_request.from_user.first_name
+    await bot.send_message(
+    user_id,
+    f"""Отримуйте легкі гроші за 2 хв. від ПриватБанку 💸
+
+🔥150 + 150 + 150 + 150🔥
+
+1️⃣ Відкриваємо картку «катка24» та отримуємо 150+150 UAH
+👉 <a href="https://www.privat24.ua/invite/j35zp">Перейти</a>
+
+2️⃣ Відкриваємо картку «Універсальна» та отримуємо 150+150 UAH
+👉 <a href="https://www.privat24.ua/invite/j3m0j">Перейти</a>
+
+Кількість необмежена 🚀
+""",
+    parse_mode="HTML"
+)
+
+# ⏱️ задержка
+await asyncio.sleep(10)
 
     try:
         kb1 = InlineKeyboardMarkup(row_width=1)
