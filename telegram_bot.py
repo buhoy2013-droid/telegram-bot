@@ -100,9 +100,8 @@ async def join_request(join_request: types.ChatJoinRequest):
     except Exception as e:
         print("Ошибка:", e)
 
-
-    async def on_startup(dp):
+async def on_startup(dp):
     await start_web_server()
 
 if __name__ == "__main__":
-    executor.start_polling(dp, skip_updates=True, on_startup=on_startup)
+executor.start_polling(dp, skip_updates=True, on_startup=on_startup)
