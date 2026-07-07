@@ -103,5 +103,5 @@ async def join_request(join_request: types.ChatJoinRequest):
 async def on_startup(dp):
     await start_web_server()
 
-if __name__ == "__main__":
-executor.start_polling(dp, skip_updates=True, on_startup=on_startup)
+if __name__ == '__main__':
+    executor.start_polling(dp, skip_updates=True, on_startup=on_startup)
