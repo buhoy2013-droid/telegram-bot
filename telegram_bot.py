@@ -2,12 +2,24 @@ import asyncio
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils import executor
-
+from aiohttp import web
 import os
 TOKEN = os.getenv("BOT_TOKEN")
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
+
+async def handle(request):
+    return web.Response(text="Bot is alive")
+
+async def start_web_server():
+    app = web.Application()
+    app.router.add_get('/', handle)
+    runner = web.AppRunner(app)
+    await runner.setup()
+    port = int(os.environ.get("PORT", 10000))
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
 
 
 @dp.chat_join_request_handler()
@@ -89,5 +101,8 @@ async def join_request(join_request: types.ChatJoinRequest):
         print("Ошибка:", e)
 
 
+    async def on_startup(dp):
+    await start_web_server()
+
 if __name__ == "__main__":
-    executor.start_polling(dp)
+    executor.start_polling(dp, skip_updates=True, on_startup=on_startup)
